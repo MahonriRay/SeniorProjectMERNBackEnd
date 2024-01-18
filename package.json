@@ -1,0 +1,22 @@
+{
+  "name": "seniorprojectmernbackend",
+  "version": "1.0.0",
+  "description": "Backend for senior project. Skate shop that host items for sale and information for the local skate scene. ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MahonriRay/SeniorProjectMERNBackEnd.git"
+  },
+  "author": "Mahonri Ray",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MahonriRay/SeniorProjectMERNBackEnd/issues"
+  },
+  "homepage": "https://github.com/MahonriRay/SeniorProjectMERNBackEnd#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
