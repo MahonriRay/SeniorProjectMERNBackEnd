@@ -1,9 +1,16 @@
+/**
+ * @author Mahonri Ray
+ * @file skateDeckModel.js
+ * @description This file will contain the model for the SkateDeck collection.
+ * @date 1/18/2024
+ */
 const mongoose = require('mongoose');
 
 const skateDeckSchema = new mongoose.Schema({
     deckBrand: String,
     deckName: String,
-    deckWidth: Number
+    deckWidth: Number,
+    quantity: Number
 })
 
 const SkateDeckModel = mongoose.model(
@@ -21,6 +28,11 @@ function CreateSkateDeck(skateDeck) {
     return createSkateDeck.save();
 }
 
+function getSkateDeck() {
+    return SkateDeckModel.find();
+}
+
 module.exports = { 
-    CreateSkateDeck
+    CreateSkateDeck,
+    getSkateDeck
 };

@@ -1,6 +1,6 @@
 /**
- * @file skateDeckController.js
  * @author Mahonri Ray
+ * @file skateDeckController.js
  * @description This file will contain all of the logic for the skateDeckController.
  */
 
@@ -23,6 +23,17 @@ async function newSkateDeck(req, res) {
     }
 }
 
+async function getSkateDeck(req, res) {
+    try {
+        const skateDeck = await skateDeckModel.getSkateDeck();
+        res.status(200).send(skateDeck);
+    } catch (e) {
+        console.error(e);
+        res.status(500).send(e);
+    }
+}
+
 module.exports = {
-    newSkateDeck
+    newSkateDeck,
+    getSkateDeck
 }

@@ -2,7 +2,7 @@
  * @file app.js
  * @author Mahonri Ray
  * @description This file is the entry point for the application.
- * @Date 6/6/2021
+ * @Date 1/18/2024
  */
 
 
@@ -17,14 +17,9 @@ const path = require('path');
 
 // Get the current working directory (src folder in this case)
 const currentWorkingDirectory = process.cwd();
+console.log('Current Working Directory: ', currentWorkingDirectory);
 
-// Construct the path to the parent directory
-const parentDirectory = path.resolve(currentWorkingDirectory, '..');
-
-// Change the working directory to the parent directory
-process.chdir(parentDirectory);
-
-console.log(process.cwd());
+console.log('Environment Var Path: ',process.cwd().toString());
 
 dotenv.config();
 
@@ -42,3 +37,10 @@ app.use('/', apiRoutes);
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
+
+
+// Construct the path to the parent directory
+// const parentDirectory = path.resolve(currentWorkingDirectory, '..');
+
+// Change the working directory to the parent directory
+// process.chdir(parentDirectory);

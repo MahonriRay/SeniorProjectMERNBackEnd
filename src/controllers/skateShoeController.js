@@ -1,0 +1,32 @@
+/**
+ * @author Mahonri Ray
+ * @file skateShoeController.js
+ * @description This file will contain all of the logic for the skateShoeController.
+ */
+const skateShoeModel = require('../models/skateShoeModel');
+
+async function newSkateShoe(req, res) {
+    try {
+        const newSkateShoe = req.body;
+        const skateShoe = await skateShoeModel.createSkateShoe(newSkateShoe);
+        res.status(200).send(skateShoe);
+    } catch (e) {
+        console.error(e);
+        res.status(500).send(e);
+    }
+}
+
+async function getSkateShoe(req, res) {
+    try {
+        const skateShoe = await skateShoeModel.getSkateShoe();
+        res.status(200).send(skateShoe);
+    } catch (e) {
+        console.error(e);
+        res.status(500).send(e);
+    }
+}
+
+module.exports = {
+    newSkateShoe,
+    getSkateShoe
+}
