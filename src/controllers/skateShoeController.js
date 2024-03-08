@@ -1,7 +1,7 @@
 /**
  * @author Mahonri Ray
  * @file skateShoeController.js
- * @description This file will contain all of the logic for the skateShoeController.
+ * @description This file will contain all of the logic for the skateShoeController.js
  */
 const skateShoeModel = require('../models/skateShoeModel');
 

@@ -12,6 +12,17 @@ async function newSkatePants(req, res) {
     }
 }
 
+async function getSkatePants(req, res) {
+    try {
+        const skatePants = await SkatePantsModel.getSkatePants();
+        res.status(200).send(skatePants);
+    } catch (e) {
+        console.error(e);
+        res.status(500).send(e);
+    }
+}
+
 module.exports = {
-    newSkatePants
+    newSkatePants,
+    getSkatePants
 };

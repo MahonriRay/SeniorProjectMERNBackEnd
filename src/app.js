@@ -7,6 +7,7 @@
 
 
 const express = require('express');
+const cors = require('cors')
 const app = express();
 const dotenv = require('dotenv');
 const connect = require('./config/database.js');
@@ -29,9 +30,9 @@ const URI = process.env.MONGO_URI;
 console.log(URI);
 connect(URI);
 
+app.use(cors())
 app.use(express.json());
 app.use('/', apiRoutes);
-
 
 
 app.listen(port, () => {

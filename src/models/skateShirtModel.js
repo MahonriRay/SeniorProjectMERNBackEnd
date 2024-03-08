@@ -19,9 +19,9 @@ const SkateShirtModel = mongoose.model(
 );
 
 /**
- * @@param {Object} skateShirt  
+ *  @param {Object} skateShirt  
  *  @returns {Promise} SkateShirtModel
- * @description This function will create a new skate shirt and will return the newly created skate shirt.
+ *  @description This function will create a new skate shirt and will return the newly created skate shirt.
  */
 function CreateSkateShirt(skateShirt) {
     const createSkateShirt = new SkateShirtModel(skateShirt);
@@ -32,7 +32,12 @@ function getSkateShirt() {
     return SkateShirtModel.find();
 }
 
+function getSkatePants(){
+    return SkateShirtModel.find();
+}
+
 module.exports = {
     CreateSkateShirt,
-    getSkateShirt
+    getSkateShirt,
+    getSkatePants
 };

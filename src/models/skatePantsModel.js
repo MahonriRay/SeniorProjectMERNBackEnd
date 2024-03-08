@@ -18,6 +18,11 @@ function createSkatePants(skatePants) {
     return createSkatePants.save();
 }
 
+function getSkatePants() {
+    return SkatePantsModel.find();
+}
+
 module.exports = {
-    createSkatePants
+    createSkatePants,
+    getSkatePants
 };
