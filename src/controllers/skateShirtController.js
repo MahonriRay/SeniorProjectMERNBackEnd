@@ -36,7 +36,19 @@ async function getSkateShirt(req, res) {
     }
 }
 
+async function getSkateShirtURL(req, res) {
+    try {
+        const shirtID = req.params.shirtID;
+        const skateShirt = await skateShirtModel.getSkateShirtByUrl(shirtID);
+        res.status(200).send(skateShirt);
+    } catch {
+        console.error(e);
+        res.status(500).send(e);
+    }
+}
+
 module.exports = {
     newSkateShirt,
-    getSkateShirt
+    getSkateShirt,
+    getSkateShirtURL
 }

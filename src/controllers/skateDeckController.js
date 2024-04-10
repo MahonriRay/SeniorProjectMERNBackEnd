@@ -23,6 +23,18 @@ async function newSkateDeck(req, res) {
     }
 }
 
+async function getSkateDeckURL(req, res) {
+    try {
+        const deckID = req.params.deckID;
+        const skateDeck = await skateDeckModel.getSkateDeckByUrl(deckID);
+        res.status(200).send(skateDeck);
+    } catch {
+        console.error(e);
+        res.status(500).send(e);
+    }
+}
+
+
 async function getSkateDeck(req, res) {
     try {
         const skateDeck = await skateDeckModel.getSkateDeck();
@@ -35,5 +47,6 @@ async function getSkateDeck(req, res) {
 
 module.exports = {
     newSkateDeck,
-    getSkateDeck
+    getSkateDeck,
+    getSkateDeckURL
 }

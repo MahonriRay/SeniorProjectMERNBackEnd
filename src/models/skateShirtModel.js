@@ -6,11 +6,15 @@
  */
 const mongoose = require('mongoose');
 const { skateShirtSizeSchema } = require('./sizingModels/skateShirtSizeModel'); 
+const { v4: uuidv4 } = require('uuid');
 
 const skateShirtSchema = new mongoose.Schema({
     shirtBrand: String,
     shirtName: String,
-    shirtSizes: skateShirtSizeSchema
+    url: String,
+    price: Number,
+    shirtSizes: skateShirtSizeSchema,
+    shirtID: {type: String, default: uuidv4()}
 });
 
 const SkateShirtModel = mongoose.model(
@@ -32,12 +36,12 @@ function getSkateShirt() {
     return SkateShirtModel.find();
 }
 
-function getSkatePants(){
-    return SkateShirtModel.find();
+function getSkateShirtByUrl(shirtName) {
+    return SkateShirtModel.find({shirtName: shirtName});
 }
 
 module.exports = {
     CreateSkateShirt,
     getSkateShirt,
-    getSkatePants
+    getSkateShirtByUrl
 };

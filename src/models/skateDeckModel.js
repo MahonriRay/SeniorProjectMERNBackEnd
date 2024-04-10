@@ -5,12 +5,16 @@
  * @date 1/18/2024
  */
 const mongoose = require('mongoose');
+const { v4: uuidv4 } = require('uuid');
 
 const skateDeckSchema = new mongoose.Schema({
     deckBrand: String,
     deckName: String,
     deckWidth: Number,
-    quantity: Number
+    quantity: Number,
+    url: String,
+    price: Number,
+    deckID: {type: String, default: uuidv4()}
 })
 
 const SkateDeckModel = mongoose.model(
@@ -32,7 +36,12 @@ function getSkateDeck() {
     return SkateDeckModel.find();
 }
 
+function getSkateDeckByUrl(deckName) {
+    return SkateDeckModel.find({deckName: deckName});
+}
+
 module.exports = { 
     CreateSkateDeck,
-    getSkateDeck
+    getSkateDeck,
+    getSkateDeckByUrl
 };

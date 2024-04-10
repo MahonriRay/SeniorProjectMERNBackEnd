@@ -26,7 +26,19 @@ async function getSkateShoe(req, res) {
     }
 }
 
+async function getSkateShoeByUrl(req, res) {
+    try {
+        const shoeID = req.params.shoeID;
+        const skateShoe = await skateShoeModel.getSkateShoeByUrl(shoeID);
+        res.status(200).send(skateShoe);
+    } catch (e) {
+        console.error(e);
+        res.status(500).send(e);
+    }
+}
+
 module.exports = {
     newSkateShoe,
-    getSkateShoe
+    getSkateShoe,
+    getSkateShoeByUrl
 }
